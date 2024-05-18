@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Function to calculate the length of a string
+string_length() {
+  local str="$1"
+  echo "The length of '$str' is ${#str}"
+}
+
+# Function to extract a substring from a string
+substring() {
+  local str="$1"
+  local position="$2"
+  local length="$3"
+  local substr="${str:$position:$length}"
+  echo "Substring of '$str' from position $position with length $length is '$substr'"
+}
+
+# Function to replace a substring within a string
+string_replace() {
+  local str="$1"
+  local search="$2"
+  local replace="$3"
+  local result="${str//$search/$replace}"
+  echo "String after replacing '$search' with '$replace' is '$result'"
+}
+
+# Function to concatenate two strings
+string_concat() {
+  local str1="$1"
+  local str2="$2"
+  local result="$str1$str2"
+  echo "Concatenated string: '$result'"
+}
+
+# Main script execution
+echo "String Handling Functions in Bash"
+
+# Example strings
+string1="Hello, World!"
+string2="Bash Scripting"
+string3="Hello, Bash!"
+
+# Demonstrating string length
+string_length "$string1"
+string_length "$string2"
+
+# Demonstrating substring extraction
+substring "$string1" 7 5
+substring "$string2" 5 9
+
+# Demonstrating string replacement
+string_replace "$string3" "Bash" "World"
+
+# Demonstrating string concatenation
+string_concat "$string1" "$string2"
+
+# End of script
+echo "String handling functions demonstration complete."
